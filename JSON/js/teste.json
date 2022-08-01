@@ -1,0 +1,22 @@
+[
+  {
+    "nome": "Adriane",
+    "idade": 30,
+    "esta_trabalhando": true,
+    "profissao": {
+      "profissao": "desenvolvedora",
+      "empresa": "minhaTech"
+    },
+    "filmes": ["casa blanca", "Hot Summer Nights", "Thor: O Mundo Sombrio"]
+  },
+  {
+    "nome": "Adriane",
+    "idade": 30,
+    "esta_trabalhando": true,
+    "profissao": {
+      "profissao": "desenvolvedora",
+      "empresa": "minhaTech"
+    },
+    "filmes": ["casa blanca", "Hot Summer Nights", "Thor: O Mundo Sombrio"]
+  }
+]

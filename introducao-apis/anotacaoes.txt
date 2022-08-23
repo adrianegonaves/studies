@@ -10,18 +10,21 @@ response = respotas
 
 ✔ Instalação do express.js
 Express salvo na lista de dependências
- npm install express --save
+➡ comando: npm install express --save
 
 ✔ Express temporariamente não o inclua na lista de dependências
-npm install express
+➡ comando: npm install express
 
 ✔ Instalando a versão tipada
-npm install @types/express --save-dev
+➡ comando: npm install @types/express --save-dev
 ---------------------------------------------------------------------------------------------------------------------------------
 🔴 Criando um templet do zero 🔴
 
 ➊ - Criar um arquivo .gitignore
-➡ comando: node_modules 
+Coloque no arquivos os arquivos e pastas que vc deseja ignorar.
+
+🎁 Exemplo
+/node_modules 
 
 ➋- Para gerar o arquivo package.json
 ➡ comando: npm init -y

@@ -1,0 +1,120 @@
+⏩ O que é API ?
+
+Application Programming Interface: é a área de contato entre dois programas ( frontend e o backend)
+
+▪ Comunicação por HTTP 
+request = requisção
+response = respotas 
+----------------------------------------------------------------------------------------------------------------------------------
+⏩ Express
+
+✔ Instalação do express.js
+Express salvo na lista de dependências
+ npm install express --save
+
+✔ Express temporariamente não o inclua na lista de dependências
+npm install express
+
+✔ Instalando a versão tipada
+npm install @types/express --save-dev
+---------------------------------------------------------------------------------------------------------------------------------
+🔴 Criando um templet do zero 🔴
+
+➊ - Criar um arquivo .gitignore
+➡ comando: node_modules 
+
+➋- Para gerar o arquivo package.json
+➡ comando: npm init -y
+
+🔺"start": "tsc && node ./build/index.js"
+
+➌- Instalar o Typescript
+➡ comando:  npm install typescript
+
+➍- Criar uma pasta src e build
+➡ comando: mkdir build src
+🔺 Já criar um arquivo TypeScript chamado `index.ts` dentro da pasta ***/src***
+
+
+➎ - Crie um arquivo chamado tsconfig.json
+➡ comando: tsc --init
+🔺Copiar o que está abaixo no arquivo
+{
+   "compilerOptions": {
+       "target": "es6",            /* Specify ECMAScript target version */
+       "module": "commonjs",       /* Specify module code generation */
+       "sourceMap": true,          /* Generates corresponding '.map' file. */
+       "outDir": "./build",        /* Redirect output structure to the directory. */
+       "rootDir": "./src",         /* Specify the root directory of input files. */
+       "removeComments": true,    /* Do not emit comments to output. */
+       "noImplicitAny": true       /* Raise error on declarations with an implied 'any' type. */
+   }
+}
+
+
+➏ - Instalação do express.js
+Express salvo na lista de dependências
+➡ comando: npm install express --save
+
+➐ - Instalando a versão tipada
+➡ comando: npm install @types/express --save-dev
+
+➑ - Instalar o cors 
+➡ comando: npm install cors 
+
+➒ - tipada cors 
+➡ comando: npm install @types/cors --save-dev 
+---------------------------------------------------------------------------------------------------------------------------------
+
+🔴 Configuaração 🔴 
+🔺 No arquivo index.ts colocar o codigo abaixo 
+
+import express, { Request, Response, Express } from "express";
+import cors from "cors";
+import { AddressInfo } from "net";
+
+
+const app: Express = express();
+app.use(express.json());
+app.use(cors());
+
+
+
+const server = app.listen(process.env.PORT || 3003, () => {
+    if (server) {
+       const address = server.address() as AddressInfo;
+       console.log(`Server is running in http://localhost: ${address.port}`);
+    } else {
+       console.error(`Failure upon starting server.`);
+    }
+});
+---------------------------------------------------------------------------------------------------------------------------------
+🔴 Construindo Endpoints🔴
+
+✍ Sintaxe
+app.method(path, handler)
+app.get('/', (request: Request, response: Response) => {
+    response.send ('Hello, world!')
+})
+---------------------------------------------------------------------------------------------------------------------------------
+🔴 Request e Response🔴
+
+👉🏼 req.headers - Parâmetros de cabeçalho
+👉🏼 req.body - Parâmetros de corpo
+👉🏼 req.query - Parâmetros de consulta
+👉🏼 req.params - Parâmetros de caminho
+
+---------------------------------------------------------------------------------------------------------------------------------
+🔴 Método flat() 🔴
+
+O método flat() cria um novo array com todos elementos sub-arrays concatenados nele de forma recursiva até a profundidade especificada
+const arr1 = [0, 1, 2, [3, 4]];
+
+🎁 Exemplo
+console.log(arr1.flat());
+// expected output: [0, 1, 2, 3, 4]
+
+const arr2 = [0, 1, 2, [[[3, 4]]]];
+
+console.log(arr2.flat(2));
+// expected output: [0, 1, 2, [3, 4]]

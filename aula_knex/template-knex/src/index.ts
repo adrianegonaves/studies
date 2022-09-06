@@ -58,32 +58,32 @@ app.post("/produtos", async (request: Request, response: Response) => {
   }
 });
 
-// app.put("/produtos/:id", async (request: Request, response: Response) => {
-//   let errorCode = 400;
-//   try {
-//     const id = Number(request.params.id);
-//     const preco = Number(request.body.preco);
-//     const produtos = await connection.raw(`
-//     SELECT *FROM Produtos 
-//     WHERE id = ${id};
-//     `);
-//     if (produtos[0].length === 0) {
-//       throw new Error("Produto não encontrado");
-//     }
+app.put("/produtos/:id", async (request: Request, response: Response) => {
+  let errorCode = 400;
+  try {
+    const id = Number(request.params.id);
+    const preco = Number(request.body.preco);
+    const produtos = await connection.raw(`
+    SELECT *FROM Produtos 
+    WHERE id = ${id};
+    `);
+    if (produtos[0].length === 0) {
+      throw new Error("Produto não encontrado");
+    }
 
-//     if (!preco) {
-//       throw new Error("Passe um novo preço");
-//     }
-//     await connection.raw(`
-//     UPDATE Produtos
-//     SET preco = ${preco}
-//     WHERE id = ${id};
-//     `);
-//     response.status(200).send("Preço alterado");
-//   } catch (error: any) {
-//     response.status(errorCode).send(error.message);
-//   }
-// });
+    if (!preco) {
+      throw new Error("Passe um novo preço");
+    }
+    await connection.raw(`
+    UPDATE Produtos
+    SET preco = ${preco}
+    WHERE id = ${id};
+    `);
+    response.status(200).send("Preço alterado");
+  } catch (error: any) {
+    response.status(errorCode).send(error.message);
+  }
+});
 
 app.delete("/produtos/:id", async (request: Request, response: Response) => {
   let errorCode = 400;

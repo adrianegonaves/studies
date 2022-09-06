@@ -1,0 +1,17 @@
+dotenv
+
+Guarda informações sensíveis
+
+Colocado no .gitignore
+
+dentro do arquivo .env 
+PORT = 3003
+DB_HOST = “35.226.146.116”
+DB_USER = “turma-aluno”
+DB_PASSWORD = “senha123”
+DB_DATABASE = “turma-aluno”
+
+chamando o metodo 
+import dotenv from “dotenv”
+dotenv.config()
+console.log(process.env.NOME_DA_CHAVE)
